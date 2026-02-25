@@ -9,4 +9,5 @@ public class HeuristicaManhattan extends Heuristica {
         return Math.abs(actual.getX() - objectiu.getX()) +
                Math.abs(actual.getY() - objectiu.getY());
     }
+    
 }

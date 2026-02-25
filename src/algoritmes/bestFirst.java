@@ -1,8 +1,7 @@
 package algoritmes;
 
 import java.util.List;
-import model.Casella;
-import model.Mapa;
+import model.*;
 import heuristiques.Heuristica;
 
 public class BestFirst extends AlgoritmeCami {
@@ -12,7 +11,8 @@ public class BestFirst extends AlgoritmeCami {
 
         double hInicial = heuristica.calcular(inici, fi);
 
-        // Implementación Best-First
+        // TODO: Implementación Best-First
+        
         return null;
     }
 }

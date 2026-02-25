@@ -4,35 +4,43 @@ import model.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Mapa mapa1 = new Mapa(10, 10);
-        Mapa mapa2 = new Mapa(10, 10);
+        String[] fitxers = {
+            "model/mapes/mapa1.txt",
+            "model/mapes/mapa2.txt",
+        };
 
-        Casella inici = mapa1.getCasella(0, 0);
-        Casella fi    = mapa1.getCasella(9, 9);
+        AlgoritmeCami[] algoritmes = {
+            new BestFirst(),
+            new AStar()
+        };
 
-        AlgoritmeCami bestFirst = new BestFirst();
-        AlgoritmeCami aStar     = new AStar();
+        Heuristica[] heuristiques = {
+            new HeuristicaManhattan(),
+            new h2(),
+            new h3()
+        };
 
-        Heuristica h1 = new HeuristicaManhattan();
-        Heuristica h2 = new HeuristicaEuclidiana();
-        Heuristica h3 = new HeuristicaPersonalitzada();
+        for (String path : fitxers) {
 
-        // BestFirst
-        bestFirst.trobarCami(inici, fi, mapa1, h1);
-        bestFirst.trobarCami(inici, fi, mapa2, h1);
-        bestFirst.trobarCami(inici, fi, mapa1, h2);
-        bestFirst.trobarCami(inici, fi, mapa2, h2);
-        bestFirst.trobarCami(inici, fi, mapa1, h3);
-        bestFirst.trobarCami(inici, fi, mapa2, h3);
+            Mapa mapa = new Mapa(path);
 
-        // AStar
-        aStar.trobarCami(inici, fi, mapa1, h1);
-        aStar.trobarCami(inici, fi, mapa2, h1);
-        aStar.trobarCami(inici, fi, mapa1, h2);
-        aStar.trobarCami(inici, fi, mapa2, h2);
-        aStar.trobarCami(inici, fi, mapa1, h3);
-        aStar.trobarCami(inici, fi, mapa2, h3);
+            Casella inici = mapa.getCasella(0, 0);
+            Casella fi    = mapa.getCasella(9, 9);
+
+            for (AlgoritmeCami algoritme : algoritmes) {
+                for (Heuristica heuristica : heuristiques) {
+
+                    System.out.println(
+                        "Mapa: " + path +
+                        " | Algoritme: " + algoritme.getClass().getSimpleName() +
+                        " | Heurística: " + heuristica.getClass().getSimpleName()
+                    );
+
+                    algoritme.trobarCami(inici, fi, mapa, heuristica);
+                }
+            }
+        }
     }
 }

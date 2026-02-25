@@ -1,8 +1,7 @@
 package algoritmes;
 
 import java.util.List;
-import model.Casella;
-import model.Mapa;
+import model.*;
 import heuristiques.Heuristica;
 
 public class AStar extends AlgoritmeCami {
@@ -12,7 +11,8 @@ public class AStar extends AlgoritmeCami {
 
         double hInicial = heuristica.calcular(inici, fi);
 
-        // Implementación A*
+        // TODO: Implementación A*
+
         return null;
     }
 }

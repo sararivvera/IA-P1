@@ -1,3 +1,10 @@
-0 1 0
-1 1 0
-0 1 1
+N N N N C B A B B N
+C B A B C B A B B N
+C B A B C B A A A N
+C C C C C B A B B N
+C B A B C B A N N N
+C B A B C C A C C N
+C B A B B B A B B N
+A A A A A A A B B N
+C B B B B B A N B N
+C N N N N B A N B N
