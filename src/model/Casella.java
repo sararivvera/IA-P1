@@ -2,9 +2,9 @@ package model;
 
 public class Casella {
 
-    private int x;
-    private int y;
-    private TipusCasella tipus;
+    private final int x;
+    private final int y;
+    private final TipusCasella tipus;
 
     public Casella(int x, int y, TipusCasella tipus) {
         this.x = x;
@@ -12,23 +12,10 @@ public class Casella {
         this.tipus = tipus;
     }
 
-    public int getX() { return x; }
-    public int getY() { return y; }
-    public TipusCasella getTipus() { return tipus; }
-
-    public float getCost() {
-        return switch (this.tipus) {
-            case B -> -1.0;       // Cost no vàlid (casella no transitable).
-            case A -> 0.5;
-            case N -> 1.0;
-            case C -> 2.0;
-            default -> -1.0;        // Cost no vàlid (casella no transitable).
-        }
-    }
-
-    public boolean esTransitable() {
-        return this.tipus != B;
-    }
-
+    public int getX() { return this.x; }
+    public int getY() { return this.y; }
+    public TipusCasella getTipus() { return this.tipus; }
+    public double getCost() { return tipus.getCost(); }
+    public boolean esTransitable() { return tipus.esTransitable(); }
 
 }

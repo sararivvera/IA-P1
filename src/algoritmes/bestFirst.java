@@ -1,18 +1,20 @@
 package algoritmes;
 
 import java.util.List;
+
 import model.*;
-import heuristiques.Heuristica;
+import heuristiques.*;
 
 public class BestFirst extends AlgoritmeCami {
 
     @Override
     public List<Casella> trobarCami(Casella inici, Casella fi, Mapa mapa, Heuristica heuristica) {
 
-        float hInicial = heuristica.calcular(inici, fi);
+        double hInicial = heuristica.calcular(inici, fi);
 
         // TODO: Implementación Best-First
         
         return null;
     }
+
 }

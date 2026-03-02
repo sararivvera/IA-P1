@@ -7,8 +7,9 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         String[] fitxers = {
-            "model/mapes/mapa1.txt",
-            "model/mapes/mapa2.txt",
+            "mapa1.txt",
+            "mapa2.txt",
+            "mapaBlanc.txt"
         };
 
         AlgoritmeCami[] algoritmes = {
@@ -18,13 +19,13 @@ public class Main {
 
         Heuristica[] heuristiques = {
             new HeuristicaManhattan(),
-            new h2(),
-            new h3()
+            new HeuristicaCanvi(),
+            new HeuristicaTipus()
         };
 
         for (String path : fitxers) {
 
-            Mapa mapa = new Mapa(path);
+            Mapa mapa = new Mapa("model/mapes/" + path);
 
             Casella inici = mapa.getCasella(0, 0);
             Casella fi    = mapa.getCasella(9, 9);

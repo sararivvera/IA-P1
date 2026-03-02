@@ -1,9 +1,9 @@
 package algoritmes;
 
 import java.util.List;
-import model.Casella;
-import model.Mapa;
-import heuristiques.Heuristica;
+
+import model.*;
+import heuristiques.*;
 
 public abstract class AlgoritmeCami {
 
@@ -13,4 +13,5 @@ public abstract class AlgoritmeCami {
             Mapa mapa,
             Heuristica heuristica
     );
+    
 }
