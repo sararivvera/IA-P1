@@ -9,7 +9,7 @@ public class BestFirst extends AlgoritmeCami {
     @Override
     public List<Casella> trobarCami(Casella inici, Casella fi, Mapa mapa, Heuristica heuristica) {
 
-        double hInicial = heuristica.calcular(inici, fi);
+        float hInicial = heuristica.calcular(inici, fi);
 
         // TODO: Implementación Best-First
         
