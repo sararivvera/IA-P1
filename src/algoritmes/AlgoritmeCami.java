@@ -49,6 +49,11 @@ public abstract class AlgoritmeCami {
         return veins;
     }
 
+    /** Clau única per identificar una casella al mapa. */
+    protected String clau(Casella c) {
+        return c.getX() + "," + c.getY();
+    }
+
     /**
      * Imprimeix el camí trobat, el cost total i el nombre d'estats tractats.
      */
