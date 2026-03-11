@@ -3,7 +3,7 @@ package heuristiques;
 import model.Casella;
 
 /**
- * Heurística 2: distància Manhattan * cost mínim (0.5) + penalització de canvi si els tipus difereixen.
+ * Heurística 3: distància Manhattan * cost mínim (0.5) + penalització de canvi si els tipus difereixen.
  *
  * h(n) = 0.5 * manhattan(n, destí) + (tipus_n != tipus_destí ? 3 : 0)
  *

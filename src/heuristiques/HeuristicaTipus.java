@@ -3,16 +3,17 @@ package heuristiques;
 import model.Casella;
 
 /**
- * Heurística 3: distància Manhattan ponderada pel cost del tipus de la casella destí.
+ * Heurística 2: distància Manhattan ponderada pel cost del tipus de la casella actual.
  *
- * h(n) = manhattan(n, destí) * cost_tipus_destí
+ * h(n) = manhattan(n, destí) * cost_tipus_actual
  *
  * NO ADMISSIBLE en general:
- *   - Si el destí és Nacional (cost=1): h = manhattan, igual que H1 -> sobreestima
- *     quan hi ha autovies al camí (cost real pot ser 0.5 * manhattan).
- *   - Si el destí és Comarcal (cost=2): h = 2 * manhattan -> sobreestima.
- *   - Només seria admissible si el destí és Autovia (cost=0.5), ja que en aquest
- *     cas h = 0.5 * manhattan <= cost real.
+ *   - Si la cel·la actual té un cost elevat (per exemple 2 = comarcal) però el camí
+ *     cap al destí es pot recórrer per caselles més barates (0.5 = autovia), llavors
+ *     h = r * cost_actual pot sobreestimar el cost real. Exemple: actual de tipus C
+ *     i totes les següents A => h calcula M*2 mentre el cost real serà proper a M*0.5.
+ *   - L'única fórmula que garanteix admisibilitat és usar el menor cost possible
+ *     (p. ex. 0.5) en la ponderació: h = manhattan * min_cost.
  */
 public class HeuristicaTipus extends Heuristica {
 
@@ -21,6 +22,6 @@ public class HeuristicaTipus extends Heuristica {
         double r = Math.abs(actual.getX() - objectiu.getX()) +
                    Math.abs(actual.getY() - objectiu.getY());
 
-        return (r * objectiu.getCost());
+        return (r * actual.getCost());
     }
 }

@@ -19,8 +19,8 @@ public class Main {
 
         Heuristica[] heuristiques = {
             new HeuristicaManhattan(),  // H1: distància Manhattan pura (NO admissible)
-            new HeuristicaCanvi(),      // H2: 0.5*manhattan + penalització canvi (ADMISSIBLE)
-            new HeuristicaTipus()       // H3: manhattan * cost_tipus_destí (NO admissible)
+            new HeuristicaTipus(),      // H2: manhattan * cost_tipus_origen (ADMISSIBLE)
+            new HeuristicaCanvi()       // H3: 0.5*manhattan + penalització canvi (ADMISSIBLE)
         };
 
         // Detecta el directori base (funciona tant des de la rel del projecte com des de src/)
